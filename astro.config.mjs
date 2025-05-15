@@ -10,5 +10,7 @@ export default defineConfig({
 
   vite: {
     plugins: [tailwindcss()]
-  }
+  },
+  site: "https://chenxing-dev.github.io/startpage/",
+  base: "/startpage"
 });
