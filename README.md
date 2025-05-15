@@ -65,6 +65,8 @@ Modify `src/data/bookmarks.json` to customize your links:
 
 ### Github Pages
 
+Enable GitHub Pages. https://github.com/chenxing-dev/startpage/settings/pages
+
 The `deploy.yml` workflow is triggered every time you push to the `main` branch and deploy to Github Pages
 
 ## TODOs
@@ -75,4 +77,3 @@ The `deploy.yml` workflow is triggered every time you push to the `main` branch 
 ## License
 
 MIT © [陈刑](https://github.com/chenxing-dev)
-```
