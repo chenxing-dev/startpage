@@ -3,14 +3,75 @@
     {
       "name": "Web Development",
       "links": [
-        { "name": "React", "url": "https://react.dev" },
-        { "name": "Vue", "url": "https://vuejs.org" },
-        { "name": "Svelte", "url": "https://svelte.dev" }
+        {
+          "name": "astro",
+          "url": "https://docs.astro.build/"
+        },
+        {
+          "name": "npm",
+          "url": "https://www.npmjs.com/"
+        },
+        {
+          "name": "React",
+          "url": "https://react.dev"
+        },
+        {
+          "name": "Vue.js",
+          "url": "https://vuejs.org"
+        },
+        {
+          "name": "Svelte",
+          "url": "https://svelte.dev"
+        },
+        {
+          "name": "tailwindcss",
+          "url": "https://tailwindcss.com/docs"
+        }
       ]
     },
     {
-      "name": "Developer Tools",
-      "links": [{ "name": "GitHub", "url": "https://github.com" }]
+      "name": "Developer Tools & Platforms",
+      "links": [
+        {
+          "name": "Arch Linux - Package Search",
+          "url": "https://archlinux.org/packages/"
+        },
+        {
+          "name": "AUR",
+          "url": "https://aur.archlinux.org/"
+        },
+        {
+          "name": "DEV.TO",
+          "url": "https://dev.to/"
+        },
+        {
+          "name": "GitHub",
+          "url": "https://github.com"
+        }
+      ]
+    },
+    {
+      "name": "Search Engines & Web Services",
+      "links": [
+        {
+          "name": "126网易免费邮",
+          "url": "https://mail.126.com/"
+        },
+        {
+          "name": "百度一下",
+          "alt": "Baidu",
+          "url": "https://www.baidu.com/s?wd="
+        },
+        {
+          "name": "百度地图",
+          "alt": "Baidu Maps",
+          "url": "https://map.baidu.com/search/@12610000,2630000?querytype=s&wd="
+        },
+        {
+          "name": "天眼查",
+          "url": "https://www.tianyancha.com/"
+        }
+      ]
     }
   ]
 }

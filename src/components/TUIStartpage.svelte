@@ -4,23 +4,20 @@
 
   let selected = 0;
   let search = "";
-  let time = "";
   let filtered = [];
   let flatLinks = [];
 
-  const updateTime = () => {
-    time = new Date().toLocaleString();
-  };
-
   const filterLinks = () => {
     filtered = bookmarks.categories
-      .map(cat => ({
+      .map((cat) => ({
         ...cat,
-        links: cat.links.filter(l => l.name.toLowerCase().includes(search.toLowerCase()))
+        links: cat.links.filter((l) =>
+          l.name.toLowerCase().includes(search.toLowerCase()) || l.alt?.toLowerCase().includes(search.toLowerCase()),
+        ),
       }))
-      .filter(cat => cat.links.length > 0);
+      .filter((cat) => cat.links.length > 0);
 
-    flatLinks = filtered.flatMap(c => c.links);
+    flatLinks = filtered.flatMap((c) => c.links);
     selected = Math.min(selected, flatLinks.length - 1);
   };
 
@@ -35,38 +32,62 @@
       case "Enter":
         window.open(flatLinks[selected]?.url, "_self");
         break;
-      case "f":
+      case "/":
         setTimeout(() => document.getElementById("search-bar").focus(), 0);
+        e.preventDefault();
         break;
     }
   };
 
   onMount(() => {
     filterLinks();
-    const timer = setInterval(updateTime, 1000);
-    return () => {
-      clearInterval(timer);
-    };
+    return () => {};
   });
 </script>
 
 <svelte:window onkeydown={handleKeydown} />
 
-<div class="bg-zinc-900 text-zinc-50 min-h-screen p-8 font-mono flex flex-col items-center">
-  <div class="mb-4 h-4">{time}</div>
+<div
+  class="text-black dark:bg-zinc-900 min-h-screen px-4 py-2 text-lg font-[FiraCode]
+  flex flex-col items-center"
+>
+  <input
+    id="search-bar"
+    bind:value={search}
+    oninput={filterLinks}
+    class="hidden md:flex w-xl border border-zinc-500 dark:border-zinc-50 outline-none my-4 p-2"
+    placeholder="search"
+  />
 
-  <input id="search-bar" bind:value={search} oninput={filterLinks} class="w-72 border-2 border-zinc-50 outline-none mb-4 p-2 rounded" placeholder="Search..." />
-
-  {#each filtered as category}
-    <div>
-      <p class="text-zinc-400">── {category.name} {"─".repeat(30 - category.name.length)}</p>
-      {#each category.links as link, _}
-        <p class={selected === flatLinks.indexOf(link) ? "bg-zinc-50 text-zinc-900" : ""}>
-          <a href="{link.url}}" class="m-1">
-            {link.name}
-          </a>
+  <div class="border w-full my-2 p-4 relative flex-1">
+    <span class="absolute top-[-12px] bg-white text-zinc-600 px-2"
+      >bookmarks</span
+    >
+    {#each filtered as category}
+      <div>
+        <p class="text-red-900">
+          {category.name}
         </p>
-      {/each}
-    </div>
-  {/each}
+        {#each category.links as link, _}
+          <p
+            class={selected === flatLinks.indexOf(link)
+              ? "bg-black text-white"
+              : ""}
+          >
+            <a href="{link.url}" class="mx-4 my-1">
+              {link.name}
+            </a>
+          </p>
+        {/each}
+      </div>
+    {/each}
+  </div>
+
+  <div class="hidden md:flex items-center justify-center
+  bg-zinc-600 text-white leading-snug w-full text-center mt-2">
+    <span class="bg-black px-2 mx-2">up</span>select previous
+    <span class="bg-black px-2 mx-2">down</span>select next
+    <span class="bg-black px-2 mx-2">/</span>focus on search bar
+    <span class="bg-black px-2 mx-2">enter</span>open link
+  </div>
 </div>
