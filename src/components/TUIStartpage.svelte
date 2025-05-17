@@ -48,14 +48,14 @@
 <svelte:window onkeydown={handleKeydown} />
 
 <div
-  class="text-black dark:bg-zinc-900 min-h-screen px-4 py-2 text-lg font-['Fira_Code']
+  class="text-black min-h-screen px-4 py-2 text-lg font-['Fira_Code']
   flex flex-col items-center"
 >
   <input
     id="search-bar"
     bind:value={search}
     oninput={filterLinks}
-    class="hidden md:flex w-xl border border-zinc-500 dark:border-zinc-50 outline-none my-4 p-2"
+    class="hidden md:flex w-xl border border-zinc-500 border-zinc-50 outline-none my-4 p-2"
     placeholder="search"
   />
 
