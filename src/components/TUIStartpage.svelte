@@ -48,7 +48,7 @@
 <svelte:window onkeydown={handleKeydown} />
 
 <div
-  class="text-black dark:bg-zinc-900 min-h-screen px-4 py-2 text-lg font-[FiraCode]
+  class="text-black dark:bg-zinc-900 min-h-screen px-4 py-2 text-lg font-['Fira_Code']
   flex flex-col items-center"
 >
   <input

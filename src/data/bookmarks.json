@@ -68,6 +68,10 @@
           "url": "https://map.baidu.com/search/@12610000,2630000?querytype=s&wd="
         },
         {
+          "name": "DeepSeek",
+          "url": "https://chat.deepseek.com/"
+        },
+        {
           "name": "天眼查",
           "alt": "tianyancha",
           "url": "https://www.tianyancha.com/"
